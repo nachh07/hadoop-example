@@ -30,6 +30,8 @@ Perfecto para:
 - Entender arquitecturas distribuidas
 - Preparar clases y talleres
 
+> 💡 **Nuevo en Hadoop?** Ve directamente a [COMANDOS-RAPIDOS.md](COMANDOS-RAPIDOS.md) para ver todos los comandos esenciales.
+
 ## 🔧 Requisitos Previos
 
 ### Software Necesario
@@ -138,18 +140,34 @@ hdfs dfs -cat /data/input/Productos.csv | head -10
 
 ### Ejecutar Consultas Hive
 
+**Opción 1: Usando Hue (Recomendado - Interfaz Gráfica)**
+```bash
+# Abre tu navegador en:
+http://localhost:8888
+
+# Primera vez: crea usuario admin con tu contraseña
+# Luego: Query > Editor > Hive
+# Escribe tus consultas en el editor visual
+```
+Ver guía completa: [docs/GUIA-HUE.md](docs/GUIA-HUE.md)
+
+**Opción 2: Usando beeline (Línea de Comandos)**
 ```bash
 # Conectarse a HiveServer2
-docker exec -it hive-server beeline -u jdbc:hive2://localhost:10000
+docker exec -it hive-server bash
+beeline -u jdbc:hive2://localhost:10000
 
 # Usar la base de datos
 USE educacion_db;
 
 # Ejecutar una consulta simple
-SELECT * FROM Productos LIMIT 10;
+SELECT * FROM productos LIMIT 10;
 
-# Ver ejemplos completos en: examples/02-hive-queries.sql
+# Para salir:
+!quit
 ```
+
+Ver ejemplos completos en: [examples/02-hive-queries.sql](examples/02-hive-queries.sql)
 
 ### Detener el Entorno
 
@@ -239,6 +257,15 @@ hadoop-example/
 ## 🌐 Interfaces Web
 
 Una vez iniciado el entorno, accede a las siguientes URLs:
+
+### Hue - Editor SQL y Browser HDFS
+- **URL**: http://localhost:8888
+- **Usuario**: admin (primera vez te pedirá crear contraseña)
+- **Función**: Interfaz gráfica completa para:
+  - Ejecutar consultas HiveQL con editor visual
+  - Explorar archivos HDFS con navegador
+  - Ver historial de queries
+  - Visualizar resultados en tablas
 
 ### HDFS NameNode UI
 - **URL**: http://localhost:9870

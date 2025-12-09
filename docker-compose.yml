@@ -96,6 +96,22 @@ services:
     networks:
       - hadoop
 
+  hue:
+    image: gethue/hue:4.10.0
+    container_name: hue
+    restart: always
+    depends_on:
+      - namenode
+      - hive-server
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./hue/hue.ini:/usr/share/hue/desktop/conf/hue.ini
+    environment:
+      - HUE_DATABASE_ENGINE=sqlite3
+    networks:
+      - hadoop
+
 volumes:
   hadoop_namenode:
   hadoop_datanode:
