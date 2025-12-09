@@ -30,6 +30,8 @@ Perfecto para:
 - Entender arquitecturas distribuidas
 - Preparar clases y talleres
 
+> 💡 **Nuevo en Hadoop?** Ve directamente a [COMANDOS-RAPIDOS.md](COMANDOS-RAPIDOS.md) para ver todos los comandos esenciales.
+
 ## 🔧 Requisitos Previos
 
 ### Software Necesario
